@@ -1,0 +1,22 @@
+{
+    "name": "renan/cakephp-predis",
+    "description": "CakePHP 3.x Predis Cache Engine",
+    "autoload": {
+        "psr-4": {
+            "Renan\\Cake\\Predis\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Renan\\Cake\\Predis\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=5.4",
+        "cakephp/cache": "^3.0",
+        "predis/predis": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    }
+}
