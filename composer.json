@@ -1,6 +1,15 @@
 {
     "name": "renan/cakephp-predis",
     "description": "CakePHP 3.x Predis Cache Engine",
+    "keywords": ["cake", "cakephp", "cache", "redis", "predis"],
+    "homepage": "https://github.com/renan/cakephp-predis",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Renan Gonçalves",
+            "email": "renan.saddam@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Renan\\Cake\\Predis\\": "src/"
