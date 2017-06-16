@@ -33,6 +33,7 @@ final class PredisEngine extends CacheEngine
         'prefix' => 'cake_',
         'probability' => 100,
         'connections' => 'tcp://127.0.0.1:6379',
+        'password' => null,
         'options' => null,
     ];
 
@@ -51,6 +52,10 @@ final class PredisEngine extends CacheEngine
 
         $this->client = new Client($this->_config['connections'], $this->_config['options']);
         $this->client->connect();
+
+        if (!is_null($this->_config['password'])) {
+            $this->client->auth($this->_config['password']);
+        }
 
         return $this->client->isConnected();
     }
