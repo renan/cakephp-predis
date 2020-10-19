@@ -28,11 +28,11 @@ final class PredisEngineTest extends \PHPUnit_Framework_TestCase
      */
     public function testWriteAndReadDataTypesAndThenDelete($value)
     {
-        $this->assertTrue($this->engine->write('dataType', $value));
-        $this->assertEquals($value, $this->engine->read('dataType'));
+        $this->assertTrue($this->engine->set('dataType', $value));
+        $this->assertEquals($value, $this->engine->get('dataType'));
 
         $this->assertTrue($this->engine->delete('dataType'));
-        $this->assertFalse($this->engine->read('dataType'));
+        $this->assertFalse($this->engine->get('dataType', false));
     }
 
     public function writeAndReadDataTypes()
@@ -51,7 +51,7 @@ final class PredisEngineTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertFalse($this->engine->increment('key'));
 
-        $this->assertTrue($this->engine->write('key', 10));
+        $this->assertTrue($this->engine->set('key', 10));
         $this->assertEquals(11, $this->engine->increment('key'));
         $this->assertEquals(12, $this->engine->increment('key'));
         $this->assertEquals(13, $this->engine->increment('key'));
@@ -61,7 +61,7 @@ final class PredisEngineTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertFalse($this->engine->decrement('key'));
 
-        $this->assertTrue($this->engine->write('key', 10));
+        $this->assertTrue($this->engine->set('key', 10));
         $this->assertEquals(9, $this->engine->decrement('key'));
         $this->assertEquals(8, $this->engine->decrement('key'));
         $this->assertEquals(7, $this->engine->decrement('key'));
